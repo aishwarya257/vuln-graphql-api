@@ -9,4 +9,8 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v2
       - name: Build the app
-        run: docker-compose build
+        run: docker-compose build  
+      - name: Scan the app
+        uses: stackhawk/hawkscan-action@v1.3.2
+        with:
+          apiKey: ${{ secrets.HAWK_API_KEY }}
